@@ -71,9 +71,22 @@ const cardNumberPatter = {
       return number.match(item.regex)
     })
 
-    console.log(foundMask)
-
     return foundMask
   },
 }
 const cardNumberMasked = IMask(cardNumber, cardNumberPatter)
+
+const addButton = document.querySelector("#add-card")
+addButton.addEventListener("click", () => {
+  alert("Cartão adicionado")
+})
+document.querySelector("form").addEventListener("submit", (event) => {
+  event.preventDefault()
+})
+
+const cardHolder = document.querySelector("#card-holder")
+cardHolder.addEventListener("input", () => {
+  const ccHolder = document.querySelector(".cc-holder .value")
+
+  ccHolder.innerText = cardHolder.value
+})
